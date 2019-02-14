@@ -1,0 +1,15 @@
+#!/bin/bash
+
+yum update -y && yum upgrade -y
+
+systemctl stop firewalld
+
+systemctl disable firewalld
+
+which vim || yum install vim -y
+which ntpdate || yum install ntpdate -y && ntpdate a.ntp.br
+
+sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinux/config
+
+reboot
+
