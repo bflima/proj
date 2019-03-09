@@ -13,7 +13,7 @@ echo "$FILE"
     apt-get update -y
     apt-get upgrade -y
 
-    apt-get -y install curl git wget unzip vim apache2 php5 git ntpdate mysql-server php5-mysql curl php5-mcrypt
+    apt-get install curl git wget unzip vim apache2 php5 git ntpdate mysql-server php5-mysql curl php5-mcrypt -y
 
     #realiza ajuste no vim
     sed -i 's/^"syntax.*/syntax on/' /etc/vim/vimrc
