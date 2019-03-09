@@ -58,7 +58,7 @@ cat > /etc/apache2/sites-available/000-default.conf << EOF
 Require all granted
   </Directory>
 EOF
-
+    sed -ie 's/memory_limit\ =\ 128M/memory_limit\ =\ 256M/g' /etc/php5/apache2/php.ini
     php5enmod mcrypt
     a2enmod rewrite
     invoke-rc.d apache2 restart
