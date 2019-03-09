@@ -13,11 +13,11 @@ echo "$FILE"
     apt-get update -y
     apt-get upgrade -y
 
-    apt-get -y install curl git wget vim apache2 php5 mysql-server php5-mysql curl php5-mcrypt
+    apt-get -y install curl git wget unzip vim apache2 php5 mysql-server php5-mysql curl php5-mcrypt
 
     #realiza ajuste no vim
     sed -i 's/^"syntax.*/syntax on/' /etc/vim/vimrc
-    sed -i 's/"set background.*/set background=dark/' /etc/vimrc
+    sed -i 's/"set background.*/set background=dark/' /etc/vim/vimrc
     sed -i '21s/^/\n'/ /etc/vim/vimrc    
     sed -i '20s/^/set number'/ /etc/vim/vimrc
     
