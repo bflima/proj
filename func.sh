@@ -148,9 +148,14 @@ function config_vim()
 #Funcao para desabilitar o firewall
 function disabilitar_fw()
 {
-    systemctl stop firewalld
-    systemctl disable firewalld
-
+    FILE="/tmp/firewall_e_selinux.txt"
+    if [ ! -e "$FILE" ] ; then
+      systemctl stop firewalld
+      systemctl disable firewalld
+      sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinux/config
+    else
+    echo "Configuracao realizada, para repetir a instalacao remover esse arquivo $FILE"
+    fi
 }
 ###############################################################################
 #Menu
